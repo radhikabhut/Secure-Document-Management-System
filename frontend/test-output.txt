@@ -1,0 +1,187 @@
+
+ RUN  v4.1.8 /home/radhi/workspace/Go/DocuVault-FE
+
+stderr | src/features/departments/api.test.ts > Departments API > should fetch all departments
+[MSW] Error: intercepted a request without a matching request handler:
+
+  • GET http://localhost:8080/api/v1/departments
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/features/departments/api.test.ts > Departments API > should fetch a single department
+[MSW] Error: intercepted a request without a matching request handler:
+
+  • GET http://localhost:8080/api/v1/departments/1
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/features/departments/api.test.ts > Departments API > should create a department
+[MSW] Error: intercepted a request without a matching request handler:
+
+  • POST http://localhost:8080/api/v1/departments
+
+  • Request body: {"name":"HR","description":"Human Resources"}
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/features/departments/api.test.ts > Departments API > should update a department
+[MSW] Error: intercepted a request without a matching request handler:
+
+  • PUT http://localhost:8080/api/v1/departments/1
+
+  • Request body: {"description":"Updated Department"}
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/features/departments/api.test.ts > Departments API > should delete a department
+[MSW] Error: intercepted a request without a matching request handler:
+
+  • DELETE http://localhost:8080/api/v1/departments/1
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+ ❯ src/features/departments/api.test.ts (5 tests | 5 failed) 289ms
+     × should fetch all departments 148ms
+     × should fetch a single department 34ms
+     × should create a department 39ms
+     × should update a department 16ms
+     × should delete a department 23ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/departments/api.test.ts > Departments API > should fetch all departments
+AxiosError: Network Error
+ ❯ XMLHttpRequest.handleError node_modules/axios/lib/adapters/xhr.js:123:21
+ ❯ XMLHttpRequest.methodCall node_modules/@mswjs/interceptors/src/interceptors/XMLHttpRequest/XMLHttpRequestController.ts:217:19
+ ❯ Proxy.<anonymous> node_modules/@mswjs/interceptors/src/utils/createProxy.ts:93:28
+ ❯ XMLHttpRequestController.trigger node_modules/@mswjs/interceptors/src/interceptors/XMLHttpRequest/XMLHttpRequestController.ts:642:15
+ ❯ XMLHttpRequestController.errorWith node_modules/@mswjs/interceptors/src/interceptors/XMLHttpRequest/XMLHttpRequestController.ts:592:9
+ ❯ Object.errorWith node_modules/@mswjs/interceptors/src/interceptors/XMLHttpRequest/XMLHttpRequestProxy.ts:74:19
+ ❯ RequestController.errorWith node_modules/@mswjs/interceptors/src/RequestController.ts:106:16
+ ❯ InterceptorHttpNetworkFrame.errorWith node_modules/msw/src/core/experimental/sources/interceptor-source.ts:156:23
+ ❯ node_modules/msw/src/core/experimental/frames/http-frame.ts:206:24
+ ❯ Axios.request node_modules/axios/lib/core/Axios.js:46:41
+ ❯ Object.get src/lib/api.ts:11:22
+      9| export const api = {
+     10|   async get<TData>(url: string, config?: RequestConfig): Promise<ApiRe…
+     11|     const response = await axiosInstance.get<ApiResponse<TData>>(url, …
+       |                      ^
+     12|
+     13|     return response.data;
+ ❯ getDepartments src/features/departments/api.ts:21:20
+ ❯ src/features/departments/api.test.ts:40:25
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  src/features/departments/api.test.ts > Departments API > should fetch a single department
+AxiosError: Network Error
+ ❯ XMLHttpRequest.handleError node_modules/axios/lib/adapters/xhr.js:123:21
+ ❯ XMLHttpRequest.methodCall node_modules/@mswjs/interceptors/src/interceptors/XMLHttpRequest/XMLHttpRequestController.ts:217:19
+ ❯ Proxy.<anonymous> node_modules/@mswjs/interceptors/src/utils/createProxy.ts:93:28
+ ❯ XMLHttpRequestController.trigger node_modules/@mswjs/interceptors/src/interceptors/XMLHttpRequest/XMLHttpRequestController.ts:642:15
+ ❯ XMLHttpRequestController.errorWith node_modules/@mswjs/interceptors/src/interceptors/XMLHttpRequest/XMLHttpRequestController.ts:592:9
+ ❯ Object.errorWith node_modules/@mswjs/interceptors/src/interceptors/XMLHttpRequest/XMLHttpRequestProxy.ts:74:19
+ ❯ RequestController.errorWith node_modules/@mswjs/interceptors/src/RequestController.ts:106:16
+ ❯ InterceptorHttpNetworkFrame.errorWith node_modules/msw/src/core/experimental/sources/interceptor-source.ts:156:23
+ ❯ node_modules/msw/src/core/experimental/frames/http-frame.ts:206:24
+ ❯ Axios.request node_modules/axios/lib/core/Axios.js:46:41
+ ❯ Object.get src/lib/api.ts:11:22
+      9| export const api = {
+     10|   async get<TData>(url: string, config?: RequestConfig): Promise<ApiRe…
+     11|     const response = await axiosInstance.get<ApiResponse<TData>>(url, …
+       |                      ^
+     12|
+     13|     return response.data;
+ ❯ getDepartment src/features/departments/api.ts:26:20
+ ❯ src/features/departments/api.test.ts:56:24
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  src/features/departments/api.test.ts > Departments API > should create a department
+AxiosError: Network Error
+ ❯ XMLHttpRequest.handleError node_modules/axios/lib/adapters/xhr.js:123:21
+ ❯ XMLHttpRequest.methodCall node_modules/@mswjs/interceptors/src/interceptors/XMLHttpRequest/XMLHttpRequestController.ts:217:19
+ ❯ Proxy.<anonymous> node_modules/@mswjs/interceptors/src/utils/createProxy.ts:93:28
+ ❯ XMLHttpRequestController.trigger node_modules/@mswjs/interceptors/src/interceptors/XMLHttpRequest/XMLHttpRequestController.ts:642:15
+ ❯ XMLHttpRequestController.errorWith node_modules/@mswjs/interceptors/src/interceptors/XMLHttpRequest/XMLHttpRequestController.ts:592:9
+ ❯ Object.errorWith node_modules/@mswjs/interceptors/src/interceptors/XMLHttpRequest/XMLHttpRequestProxy.ts:74:19
+ ❯ RequestController.errorWith node_modules/@mswjs/interceptors/src/RequestController.ts:106:16
+ ❯ InterceptorHttpNetworkFrame.errorWith node_modules/msw/src/core/experimental/sources/interceptor-source.ts:156:23
+ ❯ node_modules/msw/src/core/experimental/frames/http-frame.ts:206:24
+ ❯ Axios.request node_modules/axios/lib/core/Axios.js:46:41
+ ❯ Object.post src/lib/api.ts:21:22
+     19|     config?: RequestConfig,
+     20|   ): Promise<ApiResponse<TData>> {
+     21|     const response = await axiosInstance.post<ApiResponse<TData>>(url,…
+       |                      ^
+     22|
+     23|     return response.data;
+ ❯ createDepartment src/features/departments/api.ts:31:20
+ ❯ src/features/departments/api.test.ts:81:21
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  src/features/departments/api.test.ts > Departments API > should update a department
+AxiosError: Network Error
+ ❯ XMLHttpRequest.handleError node_modules/axios/lib/adapters/xhr.js:123:21
+ ❯ XMLHttpRequest.methodCall node_modules/@mswjs/interceptors/src/interceptors/XMLHttpRequest/XMLHttpRequestController.ts:217:19
+ ❯ Proxy.<anonymous> node_modules/@mswjs/interceptors/src/utils/createProxy.ts:93:28
+ ❯ XMLHttpRequestController.trigger node_modules/@mswjs/interceptors/src/interceptors/XMLHttpRequest/XMLHttpRequestController.ts:642:15
+ ❯ XMLHttpRequestController.errorWith node_modules/@mswjs/interceptors/src/interceptors/XMLHttpRequest/XMLHttpRequestController.ts:592:9
+ ❯ Object.errorWith node_modules/@mswjs/interceptors/src/interceptors/XMLHttpRequest/XMLHttpRequestProxy.ts:74:19
+ ❯ RequestController.errorWith node_modules/@mswjs/interceptors/src/RequestController.ts:106:16
+ ❯ InterceptorHttpNetworkFrame.errorWith node_modules/msw/src/core/experimental/sources/interceptor-source.ts:156:23
+ ❯ node_modules/msw/src/core/experimental/frames/http-frame.ts:206:24
+ ❯ Axios.request node_modules/axios/lib/core/Axios.js:46:41
+ ❯ Object.put src/lib/api.ts:31:22
+     29|     config?: RequestConfig,
+     30|   ): Promise<ApiResponse<TData>> {
+     31|     const response = await axiosInstance.put<ApiResponse<TData>>(url, …
+       |                      ^
+     32|
+     33|     return response.data;
+ ❯ updateDepartment src/features/departments/api.ts:36:20
+ ❯ src/features/departments/api.test.ts:110:21
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  src/features/departments/api.test.ts > Departments API > should delete a department
+AssertionError: promise rejected "AxiosError: Network Error { …(5) }" instead of resolving
+ ❯ src/features/departments/api.test.ts:129:39
+    127|     );
+    128|
+    129|     await expect(deleteDepartment('1')).resolves.toBeUndefined();
+       |                                       ^
+    130|   });
+    131| });
+
+Caused by: AxiosError: Network Error
+ ❯ XMLHttpRequest.handleError node_modules/axios/lib/adapters/xhr.js:123:21
+ ❯ XMLHttpRequest.methodCall node_modules/@mswjs/interceptors/lib/node/XMLHttpRequest-Dw6Wm-UU.mjs:342:22
+ ❯ Proxy.<anonymous> node_modules/@mswjs/interceptors/lib/node/XMLHttpRequest-Dw6Wm-UU.mjs:153:61
+ ❯ XMLHttpRequestController.trigger node_modules/@mswjs/interceptors/lib/node/XMLHttpRequest-Dw6Wm-UU.mjs:599:13
+ ❯ XMLHttpRequestController.errorWith node_modules/@mswjs/interceptors/lib/node/XMLHttpRequest-Dw6Wm-UU.mjs:571:8
+ ❯ Object.errorWith node_modules/@mswjs/interceptors/lib/node/XMLHttpRequest-Dw6Wm-UU.mjs:694:40
+ ❯ RequestController.errorWith node_modules/@mswjs/interceptors/lib/node/fetchUtils-BKJ1XmiO.mjs:232:15
+ ❯ InterceptorHttpNetworkFrame.errorWith node_modules/msw/lib/core/experimental/sources/interceptor-source.mjs:98:24
+ ❯ node_modules/msw/lib/core/experimental/frames/http-frame.mjs:119:25
+ ❯ Axios.request node_modules/axios/lib/core/Axios.js:46:41
+ ❯ Object.delete src/lib/api.ts:47:22
+ ❯ deleteDepartment src/features/departments/api.ts:41:3
+ ❯ src/features/departments/api.test.ts:129:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { description: undefined, number: undefined, config: { transitional: { silentJSONParsing: true, forcedJSONParsing: true, clarifyTimeoutError: false, legacyInterceptorReqResOrdering: true }, adapter: [ 'xhr', 'http', 'fetch' ], transformRequest: [ 'Function<transformRequest>' ], transformResponse: [ 'Function<transformResponse>' ], timeout: 30000, xsrfCookieName: 'XSRF-TOKEN', xsrfHeaderName: 'X-XSRF-TOKEN', maxContentLength: -1, maxBodyLength: -1, env: { FormData: 'Function<FormData>', Blob: 'Function<Blob>' }, validateStatus: 'Function<validateStatus>', headers: { Accept: 'application/json', 'Content-Type': 'application/json' }, baseURL: 'http://localhost:8080/api/v1', withCredentials: false, method: 'delete', url: '/departments/1', allowAbsoluteUrls: true }, code: 'ERR_NETWORK', status: undefined }
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  5 failed (5)
+   Start at  15:24:04
+   Duration  5.96s (transform 409ms, setup 888ms, import 706ms, tests 289ms, environment 3.25s)
+
