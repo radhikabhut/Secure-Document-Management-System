@@ -15,17 +15,6 @@
 
 **DocuVault** is a secure, enterprise-grade Document Management System (DMS) built with a modern full-stack architecture. Designed for MCA project evaluation and professional enterprise use, it provides robust capabilities for secure document storage, advanced role-based and department-based access control, file integrity verification, and seamless collaboration.
 
-## 🏗️ Architecture
-
-```mermaid
-graph TD
-    Client[Web Browser - React Frontend] -->|HTTPS / REST API| API[API Gateway / Router]
-    API -->|Auth Middleware| Controller[Controllers]
-    Controller --> Services[Business Logic Services]
-    Services --> Repository[Data Access Layer]
-    Repository --> DB[(PostgreSQL Database)]
-    Services --> Storage[Local / Cloud File Storage]
-```
 
 ## ✨ Core Features
 
@@ -57,15 +46,7 @@ graph TD
 | **Infrastructure**| Docker, Docker Compose |
 | **Testing** | Vitest, React Testing Library, MSW (Frontend) \| Go testing, Testify, Mockery (Backend) |
 
-## 📸 Screenshots
 
-| Dashboard Overview | Document Repository |
-|:---:|:---:|
-| <!-- Insert Dashboard Image Here --> <br/> _System analytics and overview_ | <!-- Insert Repository Image Here --> <br/> _Advanced search, filters, and file management_ |
-
-| Granular Sharing | Audit Logs |
-|:---:|:---:|
-| <!-- Insert Sharing Image Here --> <br/> _Share by user, role, or department_ | <!-- Insert Logs Image Here --> <br/> _Comprehensive system activity tracking_ |
 
 ## 🚀 Quick Start & Installation
 
