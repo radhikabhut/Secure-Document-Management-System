@@ -1,33 +1,22 @@
-FROM golang:1.24-alpine AS builder
+FROM golang:1.26.4-alpine3.24 AS builder
 
-WORKDIR /src
-
-RUN apk add --no-cache git ca-certificates
-
-COPY go.mod go.sum ./
-RUN go mod download
-
-COPY . .
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -buildvcs=false -trimpath -ldflags="-s -w" -o /out/docuvault ./cmd/server
-
-FROM alpine:3.21
+ENV APP_NAME=docuvoult
+ENV GO111MODULE=on
+ENV GOOS=linux
 
 WORKDIR /app
+COPY . .
 
-RUN apk add --no-cache ca-certificates tzdata wget \
-    && addgroup -S app \
-    && adduser -S app -G app \
-    && mkdir -p /app/storage/documents \
-    && chown -R app:app /app
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
+    go build -ldflags="-s -w" -o /app/${APP_NAME} ./cmd/server/main.go
 
-COPY --from=builder /out/docuvault /app/docuvault
-COPY --chown=app:app migrations /app/migrations
+FROM gcr.io/distroless/static-debian12
 
-USER app
+ENV APP_NAME=docuvoult
+WORKDIR /app
+
+COPY --from=builder /app/$APP_NAME /
 
 EXPOSE 8080
 
-HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
-    CMD wget -qO- http://127.0.0.1:8080/health || exit 1
-
-CMD ["/app/docuvault"]
+CMD ["/docuvoult"]

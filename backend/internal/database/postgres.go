@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"docuvault-be/internal/config"
+
 	"go.uber.org/zap"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"

@@ -263,8 +263,6 @@ func (s *documentService) Download(ctx context.Context, id uuid.UUID, actor dto.
 	return dto.DownloadDocumentResponse{Document: ToDocumentResponse(*document), FilePath: document.FilePath}, nil
 }
 
-
-
 func saveUploadedFile(fileHeader *multipart.FileHeader, destination string) (string, error) {
 	source, err := fileHeader.Open()
 	if err != nil {

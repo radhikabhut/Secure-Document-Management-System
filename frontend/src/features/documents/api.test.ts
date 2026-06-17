@@ -3,7 +3,6 @@ import {
   getDocuments,
   getDocumentById,
   uploadDocument,
-  downloadDocument,
   deleteDocument,
   hardDeleteDocument,
   restoreDocument,

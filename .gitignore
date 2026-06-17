@@ -36,6 +36,6 @@ dist/
 postman/
 .codex/
 .agents/
-storage/
+data/
 
 

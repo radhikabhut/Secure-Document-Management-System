@@ -2,6 +2,13 @@ FROM node:22-alpine AS builder
 
 WORKDIR /app
 
+# Build-time arguments (can be overridden in docker-compose)
+ARG VITE_APP_NAME=DocuVault
+ARG VITE_API_BASE_URL=/api/v1
+
+ENV VITE_APP_NAME=$VITE_APP_NAME \
+    VITE_API_BASE_URL=$VITE_API_BASE_URL
+
 COPY package*.json ./
 RUN npm ci
 
